@@ -18,9 +18,11 @@ BASEDIR=/projects/b1108/projects/BrainMAPD_PPI
 #sets directories and establishes what subject is being submitted for modeling
 SUBJ=$1
 FSLDATADIR=${BASEDIR}/fldir/${SUBJ}
-TEMPLATEDIR=${BASEDIR}
+TEMPLATEDIR=${BASEDIR}/templatedir
 TIMECOURSEDIR=${BASEDIR}/timecourses
 SEEDDIR=${BASEDIR}/seeds
+DATADIR=/projects/b1108/studies/brainmapd/data/processed/neuroimaging/mid/fmriprep
+TRIMDIR=${BASEDIR}/data
 
 mkdir $FSLDATADIR
 mkdir $FSLDATADIR/run-1
@@ -30,21 +32,6 @@ mkdir $FSLDATADIR/run-2
  
 #makes the orient file
 for run in 1 2; do
- DATADIR=/projects/b1108/studies/brainmapd/data/processed/neuroimaging/mid/fmriprep
- TRIMDIR=/projects/b1108/projects/BrainMAPD_PPI/data
- OUTPUT=${FSLDATADIR}/run${run}_output
- echo $OUTPUT
- #makes the fsf files from the template fsf file
- cp ${TEMPLATEDIR}/design.fsf ${TEMPLATEDIR}/${SUBJ}.fsf
-
- echo "changing permissions so that sed can do its thing"
-
- chmod 777 ${TEMPLATEDIR}/${SUBJ}.fsf
-
- echo "adapting template to be subject specific"
- sed -e 's/10001/${SUBJ}/' ${TEMPLATEDIR}/design.fsf > ${TEMPLATEDIR}/${SUBJ}.fsf
- sed -e 's/run-1/run-${run}/' ${TEMPLATEDIR}/design.fsf > ${TEMPLATEDIR}/${SUBJ}.fsf
- sed -e 's/Run1/Run$run/' ${TEMPLATEDIR}/design.fsf > ${TEMPLATEDIR}/${SUBJ}.fsf
  
  echo "creating timecourse file and trimmed functional file"
  #need to create appropriate data files. First, cut off first two images
@@ -53,5 +40,5 @@ for run in 1 2; do
 
  #runs the analysis using the newly created fsf file
  echo "Starting first level model"
- feat ${TEMPLATEDIR}/${SUBJ}.fsf
+ feat ${TEMPLATEDIR}/${SUBJ}_run${run}.fsf
 done
