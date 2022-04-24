@@ -24,7 +24,7 @@ SEEDDIR=${BASEDIR}/seeds
 DATADIR=${BASEDIR}/data
 TRIMDIR=${BASEDIR}/data
 
-#mkdir $FSLDATADIR
+mkdir $FSLDATADIR
 #mkdir $FSLDATADIR/run-1
 #mkdir $FSLDATADIR/run-2
 
@@ -36,8 +36,8 @@ TRIMDIR=${BASEDIR}/data
 #for run in 1 2; do
 run=1
 # echo "creating timecourse file and trimmed functional file"
- #need to create appropriate data files. First, cut off first two images
-fslroi ${DATADIR}/sub-${SUBJ}_ses-2_task-MID_run-${run}_space-MNI152NLin6Asym_desc-preproc_bold.nii.gz ${TRIMDIR}/sub-${SUBJ}_ses-2_task-MID_run-${run}_space-MNI152NLin6Asym_desc-preproc_bold_cut.nii.gz 2 279
+#need to create appropriate data files. First, cut off first two images
+#fslroi ${DATADIR}/sub-${SUBJ}_ses-2_task-MID_run-${run}_space-MNI152NLin6Asym_desc-preproc_bold.nii.gz ${TRIMDIR}/sub-${SUBJ}_ses-2_task-MID_run-${run}_space-MNI152NLin6Asym_desc-preproc_bold_cut.nii.gz 2 279
 # fslmeants -i ${TRIMDIR}/sub-${SUBJ}_ses-2_task-MID_run-${run}_space-MNI152NLin6Asym_desc-preproc_bold_cut.nii.gz -o ${TIMECOURSEDIR}/sub-${SUBJ}_timecourse.txt -m ${SEEDDIR}/VS_8mmsphere_Oldham_Rew.nii.gz 
 
  #runs the analysis using the newly created fsf file

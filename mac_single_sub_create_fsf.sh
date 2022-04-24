@@ -11,7 +11,7 @@ BASEDIR=/Users/zacharyanderson/Documents/ACNlab/BrainMAPD/PPI
 #sets directories and establishes what subject is being submitted for modeling
 SUBJ=$1
 FSLDATADIR=${BASEDIR}/fldir/${SUBJ}
-TEMPLATEDIR=${BASEDIR}/templatedir_quest
+TEMPLATEDIR=${BASEDIR}/templatedir
 TIMECOURSEDIR=${BASEDIR}/timecourses
 SEEDDIR=${BASEDIR}/seeds
 DATADIR=${BASEDIR}/data
