@@ -32,7 +32,7 @@ for sub = 1:length(fnames)
     
     totmotion = [transx,transy,transz,rotx,roty,rotz,outliers]; totmotion = table2array(totmotion);
 
-    allconfounds = [totmotion,GSR,WM,CSF,FD];
+    allconfounds = [totmotion,WM,CSF,FD];
 
     allconfounds(isnan(allconfounds)) = 0;
     allconfounds = allconfounds(number_of_images_dropped+1:size(T,1),:);
