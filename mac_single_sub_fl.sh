@@ -13,7 +13,7 @@
 #module load fsl
 #.  ${FSLDIR}/etc/fslconf/fsl.sh
 
-BASEDIR=/Users/zacharyanderson/Documents/ACNlab/BrainMAPD/PPI
+BASEDIR=/Users/zaz3744/Documents/current_projects/ACNlab/BrainMAPD/MID_func_conn/fsl_ppi
 
 #sets directories and establishes what subject is being submitted for modeling
 SUBJ=$1
